@@ -1,0 +1,29 @@
+<div class=" shadow p-3 m-4 bg-body-tertiary rounded">
+    <app-title [title]="'pending question'"></app-title>
+<table class="table table-success table-hover ">
+    <thead >
+        <tr>
+            <th>{{'id'|uppercase}}</th>
+            <th>{{'description'|uppercase}} </th>
+            <th>{{'datetime'|uppercase}} </th>
+            <th>{{'topic'|uppercase}} </th>
+            <th>{{'qcreated_by'|uppercase}} </th>
+            <th style="width:200px ;">{{'action'|uppercase}}</th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr *ngFor="let b of datas">
+            <td>{{b.id}} </td>
+            <td>{{b.description_question}} </td>
+            <td>{{b.datetime}} </td>
+            <td>{{b.topic}} </td>
+            <td>{{b.qcreated_by}} </td>
+            <td>
+                <button class="btn btn-success" (click)="approve(b.id)">approve</button>
+                <button class="btn btn-danger" (click)="remove(b.id)">remove</button>
+            </td> 
+        </tr>
+    </tbody>
+</table>
+
+</div>

@@ -1,0 +1,32 @@
+<div class=" shadow p-3 m-4 bg-body-tertiary rounded">
+    <app-title [title]="'questions'"></app-title>
+<table class="table table-success table-striped table-hover ">
+    <thead >
+        <tr>
+            <th>{{'topic'|uppercase}} </th>
+            <th>{{'title'|uppercase}} </th>
+            <th>{{'description'|uppercase}} </th>
+            <th>{{'datetime'|uppercase}} </th>
+            <th>{{'status'|uppercase}} </th>
+            <th>{{'created_by'|uppercase}} </th>
+            <th>{{'approved_by'|uppercase}} </th>
+            <th style="width:170px ;">{{'action'|uppercase}}</th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr *ngFor="let b of datas">
+            <td>{{b.topic}} </td>
+            <td>{{b.title}} </td>
+            <td>{{b.description_question}} </td>
+            <td>{{b.datetime}} </td>
+            <td>{{b.status}} </td>
+            <td>{{b.qcreated_by}} </td>
+            <td>{{b.qapproved_by}} </td>
+            <td>
+                <button class="btn btn-info" (click)="detail(b.id)">details</button>
+                <button class="btn btn-danger" (click)="delete(b.id)">delete</button>
+            </td> 
+        </tr>
+    </tbody>
+</table>
+</div>

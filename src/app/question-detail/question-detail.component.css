@@ -1,0 +1,7 @@
+th {
+    background-color: #04AA6D;
+    color: white;
+  }
+  td:first-child{
+    background: rgb(160, 224, 142);
+  }

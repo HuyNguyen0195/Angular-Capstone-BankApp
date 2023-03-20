@@ -1,0 +1,17 @@
+<p>table-pending works!</p>
+<h1>table</h1>
+<table *ngIf="datas">
+    <thead >
+        <th *ngFor="let k of getKeys(datas[0])">{{k|uppercase}} </th>
+        <th>{{'action'|uppercase}}</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let b of datas">
+            <td *ngFor="let k of getKeys(datas[0])"> {{b[k]}} </td>   
+            <td>
+                <button (click)="approve(b.id)">approve</button>
+                <button (click)="remove(b.id)">remove</button>
+            </td> 
+        </tr>
+    </tbody>
+</table>

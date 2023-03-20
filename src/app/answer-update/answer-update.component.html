@@ -1,0 +1,35 @@
+
+ <div class=" shadow p-3 m-4 bg-body-tertiary rounded">
+    <app-title [title]="'answer update'"></app-title>
+    <div class="input-group mb-2">
+            <label class="input-group-text border border-success">ID</label>
+            <label class="input-group-text border border-info" for="id">{{answer.id}} </label>
+    </div>
+    <div class="input-group mb-2">
+        <label class="input-group-text border border-success">status</label>
+        <input class="form-control border border-info" type="text" id="status" 
+        [(ngModel)]="answer.status" [value]="answer.status">
+    </div>
+    <div class="input-group mb-2">
+        <label class="input-group-text border border-success">created_by</label>
+        <input class="form-control border border-info" type="text" id="" 
+        [(ngModel)]="answer.created_by" [value]="answer.created_by">
+    </div>
+    <div class="input-group mb-2">
+        <label class="input-group-text border border-success">approved_by</label>
+        <input class="form-control border border-info" type="text" id="" 
+        [(ngModel)]="answer.approved_by" [value]="answer.approved_by">
+    </div>
+    <div class="input-group mb-2">
+        <label class="input-group-text border border-success">datetime:</label>
+        <label class="input-group-text border border-info">{{answer.datetime}} </label>
+        
+    </div>
+    <div class="input-group mb-2">
+         <label class="input-group-text border border-success">description</label>
+        <textarea style="height:200px ;" class="form-control border border-info" type="text" id="description" 
+        [(ngModel)]="answer.description_answer" [value]="answer.description_answer"></textarea>
+    </div>
+
+    <button class="btn btn-success" (click)="(update())">update</button>
+</div>

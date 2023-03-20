@@ -1,0 +1,26 @@
+
+<h2>{{chat.from_user}} </h2>
+<h2>{{chat.to_user}} </h2>
+
+
+<div class="content">
+    <div *ngFor="let msg of messageService.msg">
+        <div style="width:70%;float:right;" class="container darker " *ngIf="msg.from_user==chat.from_user" >
+            <button disabled style="float:right ;" class="btn btn-success">you</button>
+            <p>{{msg.message}}</p>
+            <span class="time-right">{{msg.datetime}} </span>
+        </div>
+        <div style="width:70%;float:left;" class="container"  *ngIf="msg.to_user==chat.from_user">
+            <button disabled style="float:right ;" class="btn btn-success">{{msg.from_user}} </button>
+          <p>{{msg.message}} </p>
+          <span class="time-right">{{msg.datetime}} </span>
+        </div>
+    </div>
+  </div>
+<div class="content" role="main">
+    <input class="form-control" type="text" placeholder="message" [(ngModel)]="chat.message">
+    <button class="btn btn-success" (click)="sendMessage()">Send</button>
+    
+</div>
+<button (click)="(huyClick())">huy</button>
+<button (click)="(johnClick())">john</button>

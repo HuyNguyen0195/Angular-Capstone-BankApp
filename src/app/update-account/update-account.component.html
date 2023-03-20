@@ -1,0 +1,32 @@
+<div class=" shadow p-3 m-4 bg-body-tertiary rounded" *ngIf="user">
+    <div class="input-group mb-2">
+        <label class="input-group-text border-success">ID: </label>
+        <label class="input-group-text border-success"  for="id">{{user.id}} </label>
+    </div>
+    <div class="input-group mb-2">
+        <label class="input-group-text border-success">name:</label>
+        <input class="form-control border-danger" type="text" id="name" 
+        [value]="user.name" [(ngModel)]="user.name">
+    </div>
+    <div class="input-group mb-2">
+        <label class="input-group-text border-success">userName:</label>
+        <input class="form-control border-danger" type="text" id="userName" 
+        
+        [value]="user.userName" [(ngModel)]="user.userName">
+    </div>
+    <div class="input-group mb-2">
+        <label class="input-group-text border-success">email:</label>
+        <input class="form-control border-danger" type="text" id="email" 
+        
+        [value]="user.email" [(ngModel)]="user.email">
+    </div>
+    <div class="input-group mb-2">
+        <label class="input-group-text border-success">password:</label>
+        <input class="form-control border-danger" type="text" id="password" 
+        [value]="user.password" [(ngModel)]="user.password">
+    </div>
+    
+   
+
+        <button class="btn btn-lg btn-success" (click)="(update())">update</button>
+</div>

@@ -1,0 +1,16 @@
+    <app-title [title]="'dashboard'"></app-title>
+    <div *ngIf="(isAdmin == 'admin')">
+   
+        <app-pending-question></app-pending-question>
+  
+        <app-pending-answer></app-pending-answer>
+        
+        <app-question-approved></app-question-approved>
+    </div>
+
+    <div *ngIf="(isAdmin =='user')">
+       
+        <app-question-approved></app-question-approved>
+
+    </div>
+

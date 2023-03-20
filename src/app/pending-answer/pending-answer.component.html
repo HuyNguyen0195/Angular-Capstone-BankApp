@@ -1,0 +1,28 @@
+<div class=" shadow p-3 m-4 bg-body-tertiary rounded">
+    <app-title [title]="'pending answer'"></app-title>
+<table class="table table-success table-hover">
+    <thead >
+        <tr>
+            <th>ID</th>
+            <th>DESCRIPTION</th>
+            <th>DATETIME</th>
+            <th>CREATED BY</th>
+            <th>QUESTION TITLE</th>
+            <th>{{'action'|uppercase}}</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="answers" >
+        <tr *ngFor="let a of answers">
+            <td>{{a.id}} </td>  
+            <td>{{a.description_answer}} </td>  
+            <td>{{a.datetime}} </td>  
+            <td>{{a.created_by}} </td>  
+            <td>{{a.question?.title}} </td>
+            <td>
+                <button class="btn btn-success" (click)="approve(a.id)">approve</button>
+                <button class="btn btn-danger" (click)="remove(a.id)">remove</button>
+            </td> 
+        </tr>
+    </tbody>
+</table>
+</div>

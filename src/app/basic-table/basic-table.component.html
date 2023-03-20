@@ -1,0 +1,12 @@
+<p>basic-table works!</p>
+<h1>table</h1>
+<table *ngIf="datas">
+    <thead >
+        <th *ngFor="let k of getKeys(datas[0])">{{k|uppercase}} </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let b of datas">
+            <td *ngFor="let k of getKeys(datas[0])"> {{b[k]}} </td>    
+        </tr>
+    </tbody>
+</table>

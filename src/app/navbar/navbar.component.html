@@ -1,0 +1,21 @@
+
+<nav class="fixed-top">
+    <ul>
+      <li><a *ngIf="(isAuth)" routerLink="/dashboard" routerLinkActive="active" ariaCurrentWhenActive="page">Dashboard </a></li>
+      <li><a *ngIf="(isAuth && isUser.userType=='admin')" routerLink="/userManager" routerLinkActive="active" ariaCurrentWhenActive="page">User Manager </a></li>
+      <li><a *ngIf="(isAuth)" routerLink="/chat" routerLinkActive="active" ariaCurrentWhenActive="page">Chat </a></li>
+      <li><a *ngIf="(isAuth&& isUser.userType=='admin')" routerLink="/message" routerLinkActive="active" ariaCurrentWhenActive="page">Message </a></li>
+      <li><a *ngIf="( isAuth && isUser.userType=='admin')" routerLink="/question" routerLinkActive="active" ariaCurrentWhenActive="page">Question </a></li>
+      <li><a *ngIf="( isAuth && isUser.userType=='admin')" routerLink="/answer" routerLinkActive="active" ariaCurrentWhenActive="page">Answer </a></li>
+      <li><a *ngIf="(isAuth)" routerLink="/search" routerLinkActive="active" ariaCurrentWhenActive="page">Search</a></li>
+      <li><a *ngIf="(isAuth)" routerLink="/createQuestion" routerLinkActive="active" ariaCurrentWhenActive="page"> CreateQuestion</a></li>
+      <li><a *ngIf="(!isAuth)" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page"> Login</a></li>
+      <li><a *ngIf="(!isAuth)" routerLink="/signUp" routerLinkActive="active" ariaCurrentWhenActive="page"> Sign Up</a></li>
+      <li><a *ngIf="(isAuth)" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="logout()">Logout</a>
+      <li><a *ngIf="(!isAuth)" routerLink="/userUpdate" routerLinkActive="active" ariaCurrentWhenActive="page"> updateAccount</a></li>
+     
+       <button style="text-align:center;float: right;" class="btn btn-success" disabled>welcome {{isUser.userName}} </button>
+    
+    </ul>
+   
+  </nav> 

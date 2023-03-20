@@ -1,0 +1,51 @@
+<div class=" shadow p-3 m-4 bg-body-tertiary rounded">
+    <app-title [title]="'searching question'"></app-title>
+  
+<div class="input-group mb-2">
+    <label class="input-group-text">Search By</label>
+    <span class="input-group-text">
+        <label class="input-group-text">Topic:</label>
+        <select  id="topics" [(ngModel)]="search.topic" #topicSelect (change)="(topicClick(topicSelect.value))" class="form-select">
+            <option *ngFor="let t of topics" value={{t}}>{{t}} </option>
+        </select>
+    </span>
+    <span class="input-group-text">
+        <label class="input-group-text">Title:</label>
+        <input class="form-control" type="text" id="searchContent" #title 
+        [(ngModel)]="search.title" placeholder="enter title" (change)="(titleClick(title.value))">
+    </span>
+    
+    <button class="btn btn-outline-dark" (click)="(titleClick(title.value))">Search</button>
+</div>
+<div >
+    <table class="table table-success table-striped table-hover ">
+        <thead >
+            <tr>
+                <th>{{'id'|uppercase}}</th>
+                <th>{{'topic'|uppercase}} </th>
+                <th>{{'title'|uppercase}} </th>
+                <th>{{'description'|uppercase}} </th>
+                <th>{{'image_src'|uppercase}} </th>
+                <th>{{'datetime'|uppercase}} </th>
+                <th>{{'status'|uppercase}} </th>
+                <th>{{'qcreated_by'|uppercase}} </th>
+                <th>{{'qapproved_by'|uppercase}} </th>
+            </tr>
+        </thead>
+        <tbody *ngIf="questions">
+            <tr *ngFor="let b of questions">
+                <td>{{b.id}} </td>
+                <td>{{b.topic}} </td>
+                <td>{{b.title}} </td>
+                <td>{{b.description_question}} </td>
+                <td>{{b.image_src}} </td>
+                <td>{{b.datetime}} </td>
+                <td>{{b.status}} </td>
+                <td>{{b.qcreated_by}} </td>
+                <td>{{b.qapproved_by}} </td>
+              
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

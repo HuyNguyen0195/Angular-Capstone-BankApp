@@ -1,0 +1,27 @@
+<div class=" shadow p-3 m-4 bg-body-tertiary rounded">
+    <app-title [title]="'answer question'"></app-title>
+    <div>
+        <div >
+           <h5 class="bg-info">Description Answer </h5> 
+        </div>
+        <div class="input-group mb-2  ">
+        <textarea style="height: 120px;" class="form-control" 
+            placeholder=" enter description"
+            type="text" id="description_answer" [(ngModel)]="answer.description_answer"
+            #description="ngModel" required="" minlength="6">
+        </textarea>
+        </div>
+        <div *ngIf="description.invalid && 
+            (description.dirty || description.touched)" class="mb-2 border border-danger">
+            <div *ngIf="description.errors?.['required']">
+            description is required. 
+            </div>
+            <div *ngIf="description.errors?.['minlength']">
+            description must be at least 6 characters long.
+            </div>
+    </div>
+        <button class="btn btn-lg btn-success" (click)="(addAnswer())"
+        [disabled]="(description.invalid)">answer</button> 
+    </div>
+   
+</div>

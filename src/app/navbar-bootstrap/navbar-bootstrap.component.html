@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-md bg-dark sticky-top " data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand"><h2><i class="bi bi-bank"></i></h2></a>
+      <button class="navbar-toggler bg-success" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li *ngIf="isAuth" class="nav-item"><a class="nav-link" aria-current="page" routerLink="dashboard"><i class="bi bi-house-check-fill">Dashboard</i></a></li>
+          <li *ngIf="isAuth" class="nav-item"><a class="nav-link" routerLink="createQuestion"><i class="bi bi-plus-circle">CreateQuestion</i></a></li>
+          <li *ngIf="isAuth" class="nav-item"><a class="nav-link" routerLink="search"><i class="bi bi-search">search</i></a></li>
+          <li *ngIf="isAuth && isUser.userType=='admin'" class="nav-item"><a class="nav-link" routerLink="userManager">Users</a></li>
+          <li *ngIf="isAuth && isUser.userType=='admin'" class="nav-item"><a class="nav-link" routerLink="message">Message</a></li>
+          <li *ngIf="isAuth && isUser.userType=='admin'" class="nav-item"><a class="nav-link" routerLink="answer">Answers</a></li>
+          <li *ngIf="isAuth && isUser.userType=='admin'" class="nav-item"><a class="nav-link" routerLink="question">Questions</a></li>
+          <li *ngIf="isAuth" class="nav-item"><a class="nav-link" routerLink="chat"><i class="bi bi-chat-left-text">chat</i></a></li>
+          <li *ngIf="isAuth" routerLink="/updateAccount" class="nav-item"><a class="nav-link" routerLink="/" ><i  class="bi bi-person-circle">{{isUser.userName}} </i></a></li>
+          <li *ngIf="isAuth" class="nav-item"><a class="nav-link" routerLink="/login" (click)="(logout())"><i class="bi bi-box-arrow-left">Logout</i></a></li>
+          <li *ngIf="!isAuth" class="nav-item"><a class="nav-link" routerLink="/"><i class="bi bi-box-arrow-in-left">Login</i></a></li>
+          <li *ngIf="!isAuth" class="nav-item"><a class="nav-link" routerLink="signUp"><i class="bi bi-person-plus-fill">Sign Up</i></a></li>
+        </ul>
+      
+      </div>
+    </div>
+  </nav>

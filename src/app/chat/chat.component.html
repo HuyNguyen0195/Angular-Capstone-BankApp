@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col">
+        <div class=" shadow p-3 m-4 bg-body-tertiary rounded">
+            <app-title [title]="'chat'"></app-title>
+            <table class="table table-success table-hover">
+            <thead>
+                <tr>
+                    <th>USER NAME</th>
+                    <th>USER TYPE</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let u of users" >
+                    <td *ngIf="u.userName !== currentUser.userName">{{u.userName}}</td>
+                    <td *ngIf="u.userName !== currentUser.userName">{{u.userType}}</td>
+                    <td *ngIf="u.userName !== currentUser.userName">
+                        <button class="btn btn-info" (click)="(chatClick(u.userName))">chat</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+   <div class="col" *ngIf="(chatBoxToggle)">
+        <app-chat-detail [toUser]="toUser"></app-chat-detail>
+   </div>
+</div>

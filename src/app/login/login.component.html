@@ -1,0 +1,43 @@
+<div class=" shadow p-3 m-4 bg-body-tertiary rounded">
+   
+    <app-title [title]="'login'"></app-title>
+  
+    <div class="input-group mb-2  border border-success ">
+        <label style="width: 100px;" class="input-group-text" 
+        for="userName">userName</label>
+        <input class="form-control" type="text" 
+        id="userName" [(ngModel)]="user.userName" #userName="ngModel"
+        required minlength="6">
+    </div> 
+    <div *ngIf="userName.invalid && 
+            (userName.dirty || userName.touched)" class="mb-2 border border-danger">
+            <div *ngIf="userName.errors?.['required']">
+               <label >Name is required. </label> 
+            </div>
+            <div *ngIf="userName.errors?.['minlength']">
+                Name must be at least 4 characters long.
+            </div>
+    </div>
+     <div class="input-group mb-2 border border-success">
+        <label style="width: 100px;"class="input-group-text"
+        for="password">password</label>
+        <input  class="form-control"type="password" id="password" 
+        [(ngModel)]="user.password" #password="ngModel" required minlength="6">
+     </div>
+     <div *ngIf="password.invalid && (password.dirty || password.touched)" 
+     class="border border-danger mb-2" >
+        <div *ngIf="password.errors?.['required']">
+            password is required
+        </div>
+        <div *ngIf="password.errors?.['minlength']">
+            Password must be at least 6 characters long
+        </div>
+     </div>
+
+     <div class="btn-group btn-group-lg">
+            <button class="btn btn-success" (click)="loginToken()"
+            [disabled]="(userName.invalid || password.invalid)">Login</button>
+    <button class="btn btn-info" (click)="signUp()">signUp</button>
+     </div>
+    
+</div>

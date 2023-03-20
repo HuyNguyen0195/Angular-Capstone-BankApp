@@ -1,0 +1,55 @@
+
+<div class=" shadow p-3 m-4 bg-body-tertiary rounded" style="width: 500px">
+    <app-title [title]="'create question'"></app-title>
+    <div class="input-group input-group-lg mb-2" >
+        <span class="input-group-text bg-info ">Topic</span>
+        <select name="topic" id="topic" class="form-select" required="" #topic="ngModel" [(ngModel)]="question.topic">
+            <option *ngFor="let t of topics" value={{t}} id={{t}} >{{t}} </option>
+        </select>
+    </div>
+    <div *ngIf="topic.invalid && 
+            (topic.dirty || topic.touched)" class="mb-2 border border-danger">
+            <div *ngIf="topic.errors?.['required']">
+              topic is required. 
+            </div>
+            <div *ngIf="topic.errors?.['minlength']">
+            topic must be at least 4 characters long.
+            </div>
+    </div>
+    <div class="input-group input-group-lg mb-2">
+        <span class="input-group-text bg-info" >Title</span>
+        <input type="text" class="form-control"
+         placeholder="enter title" [(ngModel)]="question.title"  
+         #title="ngModel" required="" minlength="6">
+    </div>        
+    <div *ngIf="title.invalid && 
+            (title.dirty || title.touched)" class="mb-2 border border-danger">
+            <div *ngIf="title.errors?.['required']">
+              title is required. 
+            </div>
+            <div *ngIf="title.errors?.['minlength']">
+            title must be at least 6 characters long.
+            </div>
+    </div>
+    <button class="btn btn-lg btn-success" disabled>Question Description </button>
+    <div class="input-group input-group-lg mb-2">
+        <textarea style="height:150px ;" type="text" class="form-control border-success"
+        placeholder="enter description" [(ngModel)]="question.description_question" 
+        #description="ngModel" required="" minlength="6">
+    </textarea>
+    </div>
+    <div *ngIf="description.invalid && 
+        (description.dirty || description.touched)" class="mb-2 border border-danger">
+        <div *ngIf="description.errors?.['required']">
+        description is required. 
+        </div>
+        <div *ngIf="description.errors?.['minlength']">
+        description must be at least 6 characters long.
+        </div>
+    </div>
+    <div class=" mb-2">
+        <button class="btn btn-lg btn-primary" (click)="createClick()"
+        [disabled]="(topic.invalid || title.invalid || description.invalid)">Create</button>
+    </div>
+    <button (click)="(test())">test</button>
+</div>

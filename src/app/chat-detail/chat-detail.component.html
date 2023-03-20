@@ -1,0 +1,50 @@
+
+    <app-title [title]="title"></app-title>
+    
+     <div *ngFor="let msg of messages" style="width:700px;">
+        
+        <div  class="chat darker w-75 right" *ngIf="msg.from_user==chat.from_user" >
+            <div class="row">
+                
+                <div class="col ">
+                    <p class="left">{{msg.message}} </p>
+                </div>
+                <div class="col-auto ">
+                    <button disabled  class="btn btn-success right">you</button>
+                </div>
+            </div>
+        </div>
+
+        <div  class="chat w-75 left"  *ngIf="msg.to_user==chat.from_user">
+            <div class="row">
+                <div class="col-auto ">
+                     <button disabled  class="btn btn-success left">{{msg.from_user}} </button>
+                </div>
+                <div class="col ">
+                    <p class="left">{{msg.message}} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div  *ngFor="let msg of messageService.msg">
+        <div style="width:70%;float:right;" class="chat darker " *ngIf="msg.from_user==chat.from_user" >
+            <button disabled style="float:right ;" class="btn btn-success">you</button>
+            <p>{{msg.message}}</p>
+            <span class="time-right">{{msg.datetime}} </span>
+        </div>
+        <div style="width:70%;float:left;" class="chat"  *ngIf="msg.to_user==chat.from_user  && msg.from_user==chat.to_user">
+            <button disabled style="float:right ;" class="btn btn-success">{{msg.from_user}} </button>
+          <p>{{msg.message}} </p>
+          <span class="time-right">{{msg.datetime}} </span>
+        </div>
+    </div>
+
+<div class="input-group m-2">
+    <input class="form-control border-success" placeholder="enter your message"
+         type="text" [(ngModel)]="chat.message" #message="ngModel" required="" >
+  
+    </div>
+   
+    <button class="btn btn-success btn-lg" (click)="(sendMessage())"
+    [disabled]="(message.invalid)">send</button>

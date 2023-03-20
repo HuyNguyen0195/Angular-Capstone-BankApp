@@ -1,0 +1,30 @@
+<div class=" shadow p-3 m-4 bg-body-tertiary rounded">
+    <app-title [title]="'approved questions'"></app-title>
+<table class="table table-success table-striped table-hover ">
+    <thead >
+        <tr>
+            <th>{{'id'|uppercase}}</th>
+            <th>{{'description'|uppercase}} </th>
+            <th>{{'datetime'|uppercase}} </th>
+            <th>{{'topic'|uppercase}} </th>
+            <th>{{'qcreated_by'|uppercase}} </th>
+            <th>{{'qapproved_by'|uppercase}} </th>
+            <th>{{'action'|uppercase}}</th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr *ngFor="let b of questions">
+            <td>{{b.id}} </td>
+            <td>{{b.description_question}} </td>
+            <td>{{b.datetime}} </td>
+            <td>{{b.topic}} </td>
+            <td>{{b.qcreated_by}} </td>
+            <td>{{b.qapproved_by}} </td>
+            <td>
+                <button class="btn btn-info" (click)="detail(b.id)">details</button>
+          
+            </td> 
+        </tr>
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,14 @@
+<p>detail-table works!</p>
+<h1>detail table</h1>
+<table *ngIf="data">
+    <thead >
+        <th *ngFor="let k of getKeys(data)">{{k|uppercase}} </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td *ngFor="let k of getKeys(data)">{{data[k]}} </td>    
+        </tr>
+    </tbody>
+</table>
+<button>update</button>
+<button>delete</button>
